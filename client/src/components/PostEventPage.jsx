@@ -6,7 +6,7 @@ import "../styles/postEventPage.css"; // Add your custom CSS for this page
 const PostEventPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [returnration, setReturnration] = useState("");
+  const [returnratio, setReturnratio] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const PostEventPage = () => {
     e.preventDefault();
 
     // Check if fields are empty
-    if (!title || !description || !returnration) {
+    if (!title || !description || !returnratio) {
       setError("All fields are required.");
       return;
     }
@@ -40,7 +40,7 @@ const PostEventPage = () => {
         {
           title,
           description,
-          returnration,
+          returnratio,
           userId, // Pass the userId in the body
         },
         {
@@ -54,7 +54,7 @@ const PostEventPage = () => {
       console.log(response.data); // Handle response (e.g., success message)
       setTitle("");
       setDescription("");
-      setReturnration("");
+      setReturnratio("");
       navigate("/"); // Redirect to the homepage after success
     } catch (error) {
       setError("Failed to create event.");
@@ -86,11 +86,11 @@ const PostEventPage = () => {
           ></textarea>
         </div>
         <div className="form-group">
-          <label>Return Ratio (%)</label>
+          <label>Return</label>
           <input
             type="number"
-            value={returnration}
-            onChange={(e) => setReturnration(e.target.value)}
+            value={returnratio}
+            onChange={(e) => setReturnratio(e.target.value)}
             required
           />
         </div>

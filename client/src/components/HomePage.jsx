@@ -17,7 +17,8 @@ const HomePage = () => {
       setLoading(true); // Start loading
       try {
         const response = await axios.get("http://localhost:5000/api/events");
-        setEvents(response.data); // Set fetched events
+        setEvents(response.data);
+        console.log(events) 
       } catch (error) {
         setError("Failed to load events. Please try again later.");
       } finally {
@@ -109,7 +110,7 @@ const HomePage = () => {
             <div key={event.eventId} className="event-card">
               <h3>Match: {event.title}</h3>
               <p>{event.description}</p>
-              <p>Return Rate: {event.returnration}%</p>
+              <p>Return {event.returnratio}x</p>
               <p className="event-owner">Owner: {event.owner}</p>
 
               {isLoggedIn && (

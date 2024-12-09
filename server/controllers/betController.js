@@ -19,6 +19,10 @@ exports.placeBet = async (req, res) => {
       return res.status(404).json({ message: "User not found." });
     }
 
+    if (userId == event.owner._id){
+      return res.status(404).json({message: "Event owner can not bet on event own by him"})
+    }
+
     if (user.balance < betAmount) { 
       return res.status(400).json({ message: "Insufficient balance." });
     }
@@ -47,9 +51,23 @@ exports.placeBet = async (req, res) => {
 
 exports.getBetHistory = async (req, res) => {
   try {
-    const bets = await Bet.find({ userId: req.user._id }).populate("eventId", "title");
-    res.json(bets);
+    const { userId } = req.query; // Extract userId from request body
+
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required." });
+    }
+
+    // Fetch bets for the user and populate related event details
+    const bets = await Bet.find({ userId })
+      .select("betamount betstatus returnamount") // Select fields from the Bet table
+      .populate({
+        path: "eventId", // Populate the eventId field
+        select: "title description returnration", // Select fields from the Event table
+      });
+
+    res.json(bets); // Return the bets with populated event details
   } catch (error) {
     res.status(500).json({ message: "Internal server error.", error });
   }
 };
+

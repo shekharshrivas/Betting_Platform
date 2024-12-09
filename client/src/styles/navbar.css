@@ -30,7 +30,8 @@
   /* Style for the Register/Login buttons */
   .navbar .nav-auth a,
   .navbar .nav-auth button {
-    color: #fff; /* Default color */
+    color: #fff;
+    background-color: #2e3236; /* Default color */
   }
   
   .navbar .nav-auth a:hover,

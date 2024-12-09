@@ -4,9 +4,9 @@ const User = require("../models/user");
 
 exports.getEvents = async (req, res) => {
   try {
-    // Find events with status "open" and select required fields
+    // Find events with status "open" and select required fields, including returnratio
     const events = await Event.find({ status: "open" })
-      .select("title description returnration status")
+      .select("title description returnratio status")
       .populate("owner", "username");
 
     // Transform the data to include only required fields
@@ -14,8 +14,8 @@ exports.getEvents = async (req, res) => {
       eventId: event._id,
       title: event.title,
       description: event.description,
-      returnration: event.returnration,
-      owner: event.owner.username, // Include owner's username only
+      returnratio: event.returnratio,  // Include returnratio in the response
+      owner: event.owner.username,    // Include owner's username only
     }));
 
     res.json(formattedEvents);
@@ -24,9 +24,10 @@ exports.getEvents = async (req, res) => {
   }
 };
 
+
 exports.createEvent = async (req, res) => {
   try {
-    const { title, description, returnration, userId } = req.body;
+    const { title, description, returnratio, userId } = req.body;
 
     // Ensure userId is provided
     if (!userId) {
@@ -36,7 +37,7 @@ exports.createEvent = async (req, res) => {
     const event = new Event({ 
       title, 
       description, 
-      returnration, 
+      returnratio, 
       owner: userId // Use the provided userId as the event owner
     });
 
@@ -64,7 +65,7 @@ exports.updateEventStatus = async (req, res) => {
         if (bet.betstatus === "pending") {
           if (bet.betOn === event.winner) {
             // User wins the bet
-            const returnAmount = bet.betamount * event.returnration;
+            const returnAmount = (bet.betamount * event.returnratio)-(bet.betamount * event.returnratio)/10;
             bet.returnamount = returnAmount;
             bet.betstatus = "won";
             await bet.save();
@@ -78,7 +79,7 @@ exports.updateEventStatus = async (req, res) => {
           } else {
             // User loses the bet, update event owner's balance
             const owner = await User.findById(event.owner);
-            const winningAmount = bet.betamount * event.returnration;
+            const winningAmount = (bet.betamount * event.returnratio)-(bet.betamount * event.returnratio)/10;
 
             owner.balance += winningAmount; // Event owner earns the losing bet amount
             await owner.save();
