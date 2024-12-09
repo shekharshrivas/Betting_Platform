@@ -19,9 +19,9 @@ app.use(express.json());
 app.use(cors()); // This will allow all origins to access the API
 
 // Alternatively, if you want to restrict CORS to a specific domain (e.g., localhost:5173 for your React app)
-app.use(cors({
-  origin: 'https://betting-appsb.netlify.app/',  // Adjust this URL if your React app is running on a different port
-}));
+// app.use(cors({
+//   origin: 'https://betting-appsb.netlify.app',  // Adjust this URL if your React app is running on a different port
+// }));
 
 // Connect to database
 connectDB();
