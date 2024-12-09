@@ -108,6 +108,7 @@ const ProfilePage = () => {
       {/* Bet History Section */}
       <div className="bet-history">
         <h2>Bet History</h2>
+        <h3>10% of your winnings will be platform charges.</h3>
         {betHistory.length === 0 ? (
           <p>No bet history found.</p>
         ) : (
@@ -127,7 +128,7 @@ const ProfilePage = () => {
                 <tr key={index}>
                   <td>{bet.eventId.title}</td>
                   <td>{bet.eventId.description}</td>
-                  <td>{bet.eventId.returnration}</td>
+                  <td>{bet.eventId.returnratio}x</td>
                   <td>Rs{bet.betamount}</td>
                   <td>{bet.betstatus}</td>
                   <td>Rs{bet.returnamount}</td>

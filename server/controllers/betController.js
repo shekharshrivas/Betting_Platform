@@ -62,7 +62,7 @@ exports.getBetHistory = async (req, res) => {
       .select("betamount betstatus returnamount") // Select fields from the Bet table
       .populate({
         path: "eventId", // Populate the eventId field
-        select: "title description returnration", // Select fields from the Event table
+        select: "title description returnratio", // Select fields from the Event table
       });
 
     res.json(bets); // Return the bets with populated event details
