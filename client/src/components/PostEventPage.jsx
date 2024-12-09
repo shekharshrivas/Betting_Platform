@@ -36,7 +36,7 @@ const PostEventPage = () => {
 
       // Post request to create the event
       const response = await axios.post(
-        "http://localhost:5000/api/events", // API endpoint to post the event
+        "https://betting-platform-rpmp.onrender.com/api/events", // API endpoint to post the event
         {
           title,
           description,

@@ -16,7 +16,7 @@ const HomePage = () => {
     const fetchEvents = async () => {
       setLoading(true); // Start loading
       try {
-        const response = await axios.get("http://localhost:5000/api/events");
+        const response = await axios.get("https://betting-platform-rpmp.onrender.com/api/events");
         setEvents(response.data);
         console.log(events) 
       } catch (error) {
@@ -42,7 +42,7 @@ const HomePage = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/bets", {
+      const response = await fetch("https://betting-platform-rpmp.onrender.com/api/bets", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ eventId, userId, betAmount }), // Ensure `betAmount` is properly serialized
