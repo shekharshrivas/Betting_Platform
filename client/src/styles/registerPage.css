@@ -1,0 +1,56 @@
+/* Full Page Flexbox Layout */
+body {
+    height: 100vh; /* Take full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    background-color: #f4f4f9; /* Background color for the page */
+  }
+  
+  form {
+    max-width: 400px; /* Set a max width */
+    width: 100%; /* Make form responsive */
+    padding: 30px;
+    background: #fff;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #218838;
+  }
+  
+  form p {
+    color: red;
+    text-align: center;
+  }
+  

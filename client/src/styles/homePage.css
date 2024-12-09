@@ -1,0 +1,170 @@
+/* Reset some default styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  /* Fixed navbar at the top */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #343a40;
+    color: #fff;
+    z-index: 1000;
+  }
+  
+  /* Main container for the homepage */
+  .home-page {
+    padding-top: 100px; /* Offset content below the navbar */
+    margin: 0;
+  }
+  
+  /* Welcome message and info about platform charges */
+  .welcome-container {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .welcome-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #343a40;
+  }
+  
+  .platform-charges-info {
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-container p {
+    font-size: 18px;
+    color: #6c757d;
+    margin-bottom: 20px;
+  }
+  
+  /* Error message styles */
+  .error-message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Events container style */
+  .events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  /* Individual event card styles */
+  .event-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Event card content */
+  .event-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .event-card p {
+    font-size: 16px;
+    color: #6c757d;
+    margin: 5px 0;
+  }
+  
+  .event-card .return-rate {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .event-card .owner {
+    font-style: italic;
+    color: #495057;
+  }
+  
+  /* Bet input and button styles */
+  .event-card input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .event-card button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .event-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styles for responsive design */
+  @media screen and (max-width: 768px) {
+    .home-page-container {
+      padding: 10px;
+    }
+  
+    h1 {
+      font-size: 30px;
+    }
+  
+    .events-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .events-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .event-card {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    .event-card h3 {
+      font-size: 20px;
+    }
+  
+    .event-card p {
+      font-size: 14px;
+    }
+  }
+  
